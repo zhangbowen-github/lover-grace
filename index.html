@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Lato');
+      @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700');
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #222;
+      }
+
+      .slide-bar {
+        position: relative;
+        color: transparent;
+        animation: fill-text-white 2s 1.6s forwards;
+      }
+      .slide-bar::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #35b9f1;
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: slide-in-out 2s cubic-bezier(0.75, 0, 0, 1) forwards;
+      }
+
+      @keyframes slide-in-out {
+        50% {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+        50.1% {
+          transform-origin: right;
+        }
+        100% {
+          transform: scaleX(0);
+          transform-origin: right;
+        }
+      }
+      @keyframes fill-text-white {
+        to {
+          color: white;
+        }
+      }
+      header .title,
+      header .subtitle {
+        width: 250px;
+        height: 30px;
+      }
+      header .title {
+        margin: 0;
+        font-family: Lora, serif;
+        font-size: 32px;
+        line-height: 30px;
+      }
+      header .title::before {
+        background: #ff4081;
+      }
+      header .subtitle {
+        margin: 10px 0 0 0;
+        font-family: Lato, sans-serif;
+        font-size: 12px;
+        line-height: 30px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        animation-delay: 3.2s;
+      }
+      header .subtitle::before {
+        background: #03a9f4;
+        animation-delay: 2s;
+      }
+      .bigbox {
+        width: 10px;
+        height: 10px;
+        margin: 200px 400px;
+        position: relative;
+      }
+      .box {
+        width: 500px;
+        height: 300px;
+        margin: 0 auto;
+        transform-style: preserve-3d;
+        transform: rotateX(-30deg) rotateY(-80deg);
+        -webkit-animation: mystyle 15s infinite;
+        animation-timing-function: linear;
+      }
+      @-webkit-keyframes mystyle {
+        from {
+          transform: rotateX(-180deg) rotateY(-180deg);
+        }
+        to {
+          transform: rotateX(180deg) rotateY(180deg);
+        }
+      }
+      .box div {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        opacity: 0.8;
+        transition: all 0.4s;
+      }
+      .bigpic {
+        width: 200px;
+        height: 200px;
+      }
+      .box .bigfront {
+        transform: rotateY(0deg) translateZ(100px);
+      }
+      .box .bigback {
+        transform: translateZ(-100px) rotateY(180deg);
+      }
+      .box .bigleft {
+        transform: rotateY(90deg) translateZ(100px);
+      }
+      .box .bigright {
+        transform: rotateY(-90deg) translateZ(100px);
+      }
+      .box .bigtop {
+        transform: rotateX(90deg) translateZ(100px);
+      }
+      .box .bigbottom {
+        transform: rotateX(-90deg) translateZ(100px);
+      }
+      .box span {
+        display: block;
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        top: 25px;
+        left: 25px;
+      }
+      .box .smallpic {
+        width: 140px;
+        height: 140px;
+      }
+      .box .smallleft {
+        transform: rotateY(90deg) translateZ(70px);
+      }
+      .box .smallright {
+        transform: rotateY(-90deg) translateZ(70px);
+      }
+      .box .smalltop {
+        transform: rotateX(90deg) translateZ(70px);
+      }
+      .box .smallbottom {
+        transform: rotateX(-90deg) translateZ(70px);
+      }
+      .box .smallfront {
+        transform: rotateY(0deg) translateZ(70px);
+      }
+      .box .smallback {
+        transform: translateZ(-70px) rotateY(180deg);
+      }
+      /*:hover 我们之前说过的一个css选择器，能够让鼠标指向的时候触发*/
+      .box:hover .bigleft {
+        transform: rotateY(90deg) translateZ(300px);
+      }
+      .box:hover .bigright {
+        transform: rotateY(-90deg) translateZ(300px);
+      }
+      .box:hover .bigtop {
+        transform: rotateX(90deg) translateZ(300px);
+      }
+      .box:hover .bigbottom {
+        transform: rotateX(-90deg) translateZ(300px);
+      }
+      .box:hover .bigfront {
+        transform: rotateY(0deg) translateZ(300px);
+      }
+      .box:hover .bigback {
+        transform: translateZ(-300px) rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="title slide-bar">I Love You</h1>
+      <p class="subtitle slide-bar">我的宝贝 高伟</p>
+      <div class="bigbox">
+        <div class="box">
+          <div class="bigfront">
+            <img src="image/1.png" class="bigpic" />
+          </div>
+          <div class="bigback">
+            <img src="image/2.png" class="bigpic" />
+          </div>
+          <div class="bigleft">
+            <img src="image/3.png" class="bigpic" />
+          </div>
+          <div class="bigright">
+            <img src="image/4.png" class="bigpic" />
+          </div>
+          <div class="bigtop">
+            <img src="image/5.png" class="bigpic" />
+          </div>
+          <div class="bigbottom">
+            <img src="image/6.png" class="bigpic" />
+          </div>
+          <span class="smallfront">
+            <img src="image/7.png" class="smallpic" />
+          </span>
+          <span class="smallback">
+            <img src="image/8.png" class="smallpic" />
+          </span>
+          <span class="smallleft">
+            <img src="image/9.png" class="smallpic" />
+          </span>
+          <span class="smallright">
+            <img src="image/10.png" class="smallpic" />
+          </span>
+          <span class="smalltop">
+            <img src="image/11.png" class="smallpic" />
+          </span>
+          <span class="smallbottom">
+            <img src="image/12.png" class="smallpic" />
+          </span>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
